@@ -10,3 +10,7 @@ module.exports = {
 function add(details){
     return db('spell_list').insert(details)
 }
+
+function findByCharacter(characterId){
+    return db('spell_list').where({ "character_id": characterId })
+}
