@@ -8,5 +8,9 @@ module.exports = {
 }
 
 function add(details){
-    return db('user').insert(details)
+    return db('character').insert(details)
+}
+
+function findByUser(userId){
+    return db('character').where({ 'user_id': userId})
 }
