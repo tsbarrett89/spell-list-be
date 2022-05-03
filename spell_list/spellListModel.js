@@ -6,3 +6,7 @@ module.exports = {
     update,
     remove
 }
+
+function add(details){
+    return db('spell_list').insert(details)
+}
