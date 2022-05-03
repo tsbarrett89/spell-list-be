@@ -10,7 +10,7 @@ exports.up = function(knex) {
         tbl.integer('level')
             .notNullable()
         tbl.string('multiclass')
-            defaultTo("")
+            defaultTo("none")
         tbl.integer('multiclass_level')
             defaultTo(0)
         tbl.integer('user_id')
