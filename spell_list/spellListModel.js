@@ -18,3 +18,7 @@ function findByCharacter(characterId){
 function update(details, id){
     return db('spell_list').where({ "id": id }).update(details)
 }
+
+function remove(id){
+    return db('spell_list').where({ "id": id }).del()
+}
