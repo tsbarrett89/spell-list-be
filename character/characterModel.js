@@ -18,3 +18,7 @@ function findByUser(userId){
 function update(details, id){
     return db('character').where({ 'id': id }).update(details)
 }
+
+function remove(id){
+    return db('character').where({ 'id': id }).del()
+}
