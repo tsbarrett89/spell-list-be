@@ -6,3 +6,7 @@ module.exports = {
     update,
     remove
 }
+
+function add(details){
+    return db('user').insert(details)
+}
