@@ -38,6 +38,20 @@ router.post('/login', (req, res) => {
     const creds = req.body
 
     if(creds.email && creds.password){
+        userModel.findByEmail(creds.email)
+            .first()
+            .then(user => {
+                if(user && bcrypt.compareSync(creds.password, user.password)){
+                    const token = generateToken(user.id)
+
+                    res.status(200).json({ token, user_id: user.id})
+                } else {
+                    res.status(401).json({ errorMessage: "Invalid credentials." })
+                }
+            })
+            .catch(error => {
+                res.status(500).json({ errorMessage: "Login unsuccessful." })
+            })
 
     } else {
         res.status(400).json({ errorMessage: "Email and password required to login."})
