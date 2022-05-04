@@ -2,7 +2,7 @@ const db = require('../data/dbConfig.js');
 
 module.exports = {
     add,
-    findUserByEmail,
+    findByEmail,
     update,
     remove
 }
@@ -11,7 +11,7 @@ function add(details){
     return db('user').insert(details)
 }
 
-function findUserByEmail(email){
+function findByEmail(email){
     return db('user').where({ 'email': email})
 }
 
