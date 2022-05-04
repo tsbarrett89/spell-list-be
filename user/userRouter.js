@@ -34,4 +34,14 @@ router.post('/register', (req, res) => {
     }
 })
 
+router.post('/login', (req, res) => {
+    const creds = req.body
+
+    if(creds.email && creds.password){
+
+    } else {
+        res.status(400).json({ errorMessage: "Email and password required to login."})
+    }
+})
+
 module.exports = router
